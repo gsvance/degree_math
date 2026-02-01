@@ -44,17 +44,17 @@ def _rewrite_docstring[**P, R](
 
 @_rewrite_docstring
 def sin(x: _SupportsFloatOrIndex, /) -> float:
-    return _math.sin(_math.degrees(x))
+    return _math.sin(_math.radians(x))
 
 
 @_rewrite_docstring
 def cos(x: _SupportsFloatOrIndex, /) -> float:
-    return _math.cos(_math.degrees(x))
+    return _math.cos(_math.radians(x))
 
 
 @_rewrite_docstring
 def tan(x: _SupportsFloatOrIndex, /) -> float:
-    return _math.tan(_math.degrees(x))
+    return _math.tan(_math.radians(x))
 
 
 # Overwrite the asin, acos, atan, and atan2 functions to return values in
