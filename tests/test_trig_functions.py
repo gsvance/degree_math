@@ -1,9 +1,14 @@
 """Unit tests for the normal forward trig functions in degree_math."""
 
 import math
+from typing import Final
 import unittest
 
 from degree_math import sin, cos, tan
+
+
+SQRT_2: Final[float] = math.sqrt(2)
+SQRT_3: Final[float] = math.sqrt(3)
 
 
 class TestTrigFunctions(unittest.TestCase):
@@ -28,48 +33,48 @@ class TestTrigFunctions(unittest.TestCase):
 
         # Positive angles
         self.assertAlmostEqual(sin(30), 1/2)
-        self.assertAlmostEqual(sin(45), math.sqrt(2)/2)
-        self.assertAlmostEqual(sin(60), math.sqrt(3)/2)
+        self.assertAlmostEqual(sin(45), SQRT_2/2)
+        self.assertAlmostEqual(sin(60), SQRT_3/2)
 
         # Negative angles
         self.assertAlmostEqual(sin(-330), 1/2)
-        self.assertAlmostEqual(sin(-315), math.sqrt(2)/2)
-        self.assertAlmostEqual(sin(-300), math.sqrt(3)/2)
+        self.assertAlmostEqual(sin(-315), SQRT_2/2)
+        self.assertAlmostEqual(sin(-300), SQRT_3/2)
 
     def test_sine_in_2nd_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(sin(120), math.sqrt(3)/2)
-        self.assertAlmostEqual(sin(135), math.sqrt(2)/2)
+        self.assertAlmostEqual(sin(120), SQRT_3/2)
+        self.assertAlmostEqual(sin(135), SQRT_2/2)
         self.assertAlmostEqual(sin(150), 1/2)
 
         # Negative angles
-        self.assertAlmostEqual(sin(-240), math.sqrt(3)/2)
-        self.assertAlmostEqual(sin(-225), math.sqrt(2)/2)
+        self.assertAlmostEqual(sin(-240), SQRT_3/2)
+        self.assertAlmostEqual(sin(-225), SQRT_2/2)
         self.assertAlmostEqual(sin(-210), 1/2)
 
     def test_sine_in_3rd_quadrant(self):
 
         # Positive angles
         self.assertAlmostEqual(sin(210), -1/2)
-        self.assertAlmostEqual(sin(225), -math.sqrt(2)/2)
-        self.assertAlmostEqual(sin(240), -math.sqrt(3)/2)
+        self.assertAlmostEqual(sin(225), -SQRT_2/2)
+        self.assertAlmostEqual(sin(240), -SQRT_3/2)
 
         # Negative angles
         self.assertAlmostEqual(sin(-150), -1/2)
-        self.assertAlmostEqual(sin(-135), -math.sqrt(2)/2)
-        self.assertAlmostEqual(sin(-120), -math.sqrt(3)/2)
+        self.assertAlmostEqual(sin(-135), -SQRT_2/2)
+        self.assertAlmostEqual(sin(-120), -SQRT_3/2)
 
     def test_sine_in_4th_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(sin(300), -math.sqrt(3)/2)
-        self.assertAlmostEqual(sin(315), -math.sqrt(2)/2)
+        self.assertAlmostEqual(sin(300), -SQRT_3/2)
+        self.assertAlmostEqual(sin(315), -SQRT_2/2)
         self.assertAlmostEqual(sin(330), -1/2)
 
         # Negative angles
-        self.assertAlmostEqual(sin(-60), -math.sqrt(3)/2)
-        self.assertAlmostEqual(sin(-45), -math.sqrt(2)/2)
+        self.assertAlmostEqual(sin(-60), -SQRT_3/2)
+        self.assertAlmostEqual(sin(-45), -SQRT_2/2)
         self.assertAlmostEqual(sin(-30), -1/2)
 
     def test_cosine_on_x_and_y_axes(self):
@@ -91,50 +96,50 @@ class TestTrigFunctions(unittest.TestCase):
     def test_cosine_in_1st_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(cos(30), math.sqrt(3)/2)
-        self.assertAlmostEqual(cos(45), math.sqrt(2)/2)
+        self.assertAlmostEqual(cos(30), SQRT_3/2)
+        self.assertAlmostEqual(cos(45), SQRT_2/2)
         self.assertAlmostEqual(cos(60), 1/2)
 
         # Negative angles
-        self.assertAlmostEqual(cos(-330), math.sqrt(3)/2)
-        self.assertAlmostEqual(cos(-315), math.sqrt(2)/2)
+        self.assertAlmostEqual(cos(-330), SQRT_3/2)
+        self.assertAlmostEqual(cos(-315), SQRT_2/2)
         self.assertAlmostEqual(cos(-300), 1/2)
 
     def test_cosine_in_2nd_quadrant(self):
 
         # Positive angles
         self.assertAlmostEqual(cos(120), -1/2)
-        self.assertAlmostEqual(cos(135), -math.sqrt(2)/2)
-        self.assertAlmostEqual(cos(150), -math.sqrt(3)/2)
+        self.assertAlmostEqual(cos(135), -SQRT_2/2)
+        self.assertAlmostEqual(cos(150), -SQRT_3/2)
 
         # Negative angles
         self.assertAlmostEqual(cos(-240), -1/2)
-        self.assertAlmostEqual(cos(-225), -math.sqrt(2)/2)
-        self.assertAlmostEqual(cos(-210), -math.sqrt(3)/2)
+        self.assertAlmostEqual(cos(-225), -SQRT_2/2)
+        self.assertAlmostEqual(cos(-210), -SQRT_3/2)
 
     def test_cosine_in_3rd_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(cos(210), -math.sqrt(3)/2)
-        self.assertAlmostEqual(cos(225), -math.sqrt(2)/2)
+        self.assertAlmostEqual(cos(210), -SQRT_3/2)
+        self.assertAlmostEqual(cos(225), -SQRT_2/2)
         self.assertAlmostEqual(cos(240), -1/2)
 
         # Negative angles
-        self.assertAlmostEqual(cos(-150), -math.sqrt(3)/2)
-        self.assertAlmostEqual(cos(-135), -math.sqrt(2)/2)
+        self.assertAlmostEqual(cos(-150), -SQRT_3/2)
+        self.assertAlmostEqual(cos(-135), -SQRT_2/2)
         self.assertAlmostEqual(cos(-120), -1/2)
 
     def test_cosine_in_4th_quadrant(self):
 
         # Positive angles
         self.assertAlmostEqual(cos(300), 1/2)
-        self.assertAlmostEqual(cos(315), math.sqrt(2)/2)
-        self.assertAlmostEqual(cos(330), math.sqrt(3)/2)
+        self.assertAlmostEqual(cos(315), SQRT_2/2)
+        self.assertAlmostEqual(cos(330), SQRT_3/2)
 
         # Negative angles
         self.assertAlmostEqual(cos(-60), 1/2)
-        self.assertAlmostEqual(cos(-45), math.sqrt(2)/2)
-        self.assertAlmostEqual(cos(-30), math.sqrt(3)/2)
+        self.assertAlmostEqual(cos(-45), SQRT_2/2)
+        self.assertAlmostEqual(cos(-30), SQRT_3/2)
 
     def test_tangent_on_x_and_y_axes(self):
 
@@ -155,47 +160,47 @@ class TestTrigFunctions(unittest.TestCase):
     def test_tangent_in_1st_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(tan(30), math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(30), SQRT_3/3)
         self.assertAlmostEqual(tan(45), 1)
-        self.assertAlmostEqual(tan(60), math.sqrt(3))
+        self.assertAlmostEqual(tan(60), SQRT_3)
 
         # Negative angles
-        self.assertAlmostEqual(tan(-330), math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(-330), SQRT_3/3)
         self.assertAlmostEqual(tan(-315), 1)
-        self.assertAlmostEqual(tan(-300), math.sqrt(3))
+        self.assertAlmostEqual(tan(-300), SQRT_3)
 
     def test_tangent_in_2nd_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(tan(120), -math.sqrt(3))
+        self.assertAlmostEqual(tan(120), -SQRT_3)
         self.assertAlmostEqual(tan(135), -1)
-        self.assertAlmostEqual(tan(150), -math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(150), -SQRT_3/3)
 
         # Negative angles
-        self.assertAlmostEqual(tan(-240), -math.sqrt(3))
+        self.assertAlmostEqual(tan(-240), -SQRT_3)
         self.assertAlmostEqual(tan(-225), -1)
-        self.assertAlmostEqual(tan(-210), -math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(-210), -SQRT_3/3)
 
     def test_tangent_in_3rd_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(tan(210), math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(210), SQRT_3/3)
         self.assertAlmostEqual(tan(225), 1)
-        self.assertAlmostEqual(tan(240), math.sqrt(3))
+        self.assertAlmostEqual(tan(240), SQRT_3)
 
         # Negative angles
-        self.assertAlmostEqual(tan(-150), math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(-150), SQRT_3/3)
         self.assertAlmostEqual(tan(-135), 1)
-        self.assertAlmostEqual(tan(-120), math.sqrt(3))
+        self.assertAlmostEqual(tan(-120), SQRT_3)
 
     def test_tangent_in_4th_quadrant(self):
 
         # Positive angles
-        self.assertAlmostEqual(tan(300), -math.sqrt(3))
+        self.assertAlmostEqual(tan(300), -SQRT_3)
         self.assertAlmostEqual(tan(315), -1)
-        self.assertAlmostEqual(tan(330), -math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(330), -SQRT_3/3)
 
         # Negative angles
-        self.assertAlmostEqual(tan(-60), -math.sqrt(3))
+        self.assertAlmostEqual(tan(-60), -SQRT_3)
         self.assertAlmostEqual(tan(-45), -1)
-        self.assertAlmostEqual(tan(-30), -math.sqrt(3)/3)
+        self.assertAlmostEqual(tan(-30), -SQRT_3/3)
