@@ -8,18 +8,20 @@ the trig functions are in degree mode instead of defaulting to radians.
 import math as _math
 import typing as _typing
 
+
+# Make everything from the built-in math module available in this namespace.
 from math import *
-
-
 __all__ = [_name for _name in dir(_math) if not _name.startswith('__')]
 
 
+# Set up a type alias for annotating the expected input typea of all the math
+# functions.
 type _SupportsFloatOrIndex = _typing.SupportsFloat | _typing.SupportsIndex
 
 
 # This decorator writes docstrings for the trig functions in this module by
-# looking up the corresponding function in the built-in math module and
-# replacing a few select substrings in its docstring
+# looking up the corresponding function in the built-in math module and then
+# replacing a few select substrings in its docstring.
 def _rewrite_docstring[**P, R](
     new_function: _typing.Callable[P, R],
 ) -> _typing.Callable[P, R]:
@@ -37,6 +39,9 @@ def _rewrite_docstring[**P, R](
     return new_function
 
 
+# Overwrite the sin, cos, and tan functions to expect arguments in degrees.
+# Convert the argument to radians, then call the built-in function from there.
+
 @_rewrite_docstring
 def sin(x: _SupportsFloatOrIndex, /) -> float:
     return _math.sin(_math.degrees(x))
@@ -51,6 +56,10 @@ def cos(x: _SupportsFloatOrIndex, /) -> float:
 def tan(x: _SupportsFloatOrIndex, /) -> float:
     return _math.tan(_math.degrees(x))
 
+
+# Overwrite the asin, acos, atan, and atan2 functions to return values in
+# degrees. Call the built-in functions, then convert the value to degrees
+# before returning it.
 
 @_rewrite_docstring
 def asin(x: _SupportsFloatOrIndex, /) -> float:
