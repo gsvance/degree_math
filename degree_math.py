@@ -11,6 +11,9 @@ import typing as _typing
 from math import *
 
 
+__all__ = [_name for _name in dir(_math) if not _name.startswith('__')]
+
+
 type _SupportsFloatOrIndex = _typing.SupportsFloat | _typing.SupportsIndex
 
 
