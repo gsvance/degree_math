@@ -1,26 +1,27 @@
-"""degree_math
+"""Python's math module, but with trig functions that operate in degrees.
 
-An alternative version of the Python math module with trig functions that
-operate in degrees. This module is identical to the built-in math module, but
-the trig functions are in degree mode instead of defaulting to radians.
+The degree_math module is an alternative version of Python's standard library
+math module with trigonometric functions that operate in degrees instead of
+radians. All other functions from the math module are also available here, but
+those do not operate any differently.
 """
 
 import math as _math
 import typing as _typing
 
 
-# Make everything from the built-in math module available in this namespace.
+# Make everything from the standard math module available in this namespace.
 from math import *
 
 
-# Set up a type alias for annotating the expected input typea of all the math
-# functions.
+# Set up a quick type alias for annotating the expected input types of all the
+# trig functions.
 type _SupportsFloatOrIndex = _typing.SupportsFloat | _typing.SupportsIndex
 
 
-# This decorator writes docstrings for the trig functions in this module by
-# looking up the corresponding function in the built-in math module and then
-# replacing a few select substrings in its docstring.
+# The following decorator writes the docstrings for the trig functions in this
+# module by looking up the corresponding functions in the standard math module
+# and then replacing a few select substrings.
 def _rewrite_docstring[**P, R](
     new_function: _typing.Callable[P, R],
 ) -> _typing.Callable[P, R]:
@@ -38,8 +39,9 @@ def _rewrite_docstring[**P, R](
     return new_function
 
 
-# Overwrite the sin, cos, and tan functions to expect arguments in degrees.
-# Convert the argument to radians, then call the built-in function from there.
+# Overwrite the sin(), cos(), and tan() functions to expect their arguments in
+# degrees. First convert the argument to radians, and then call the standard
+# function from there.
 
 @_rewrite_docstring
 def sin(x: _SupportsFloatOrIndex, /) -> float:
@@ -56,9 +58,9 @@ def tan(x: _SupportsFloatOrIndex, /) -> float:
     return _math.tan(_math.radians(x))
 
 
-# Overwrite the asin, acos, atan, and atan2 functions to return values in
-# degrees. Call the built-in functions, then convert the value to degrees
-# before returning it.
+# Overwrite the asin(), acos(), atan(), and atan2() functions to return values
+# in degrees. First call the standard functions, then convert the output to
+# degrees before returning it.
 
 @_rewrite_docstring
 def asin(x: _SupportsFloatOrIndex, /) -> float:
