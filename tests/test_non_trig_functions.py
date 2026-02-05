@@ -1,4 +1,4 @@
-"""Unit tests for all the other functions that degree_math takes from math."""
+"""Unit tests for the other functions that degree_math borrows from math."""
 
 import math
 from typing import Final

@@ -15,6 +15,8 @@ INF: Final[float] = float('inf')
 
 class TestInverseTrigFunctions(unittest.TestCase):
 
+    # Inverse sine function
+
     def test_arcsine(self):
 
         # Negative inputs
@@ -31,6 +33,8 @@ class TestInverseTrigFunctions(unittest.TestCase):
         self.assertAlmostEqual(asin(SQRT_3/2), 60)
         self.assertAlmostEqual(asin(1), 90)
 
+    # Inverse cosine function
+
     def test_arccosine(self):
 
         # Negative inputs
@@ -46,6 +50,8 @@ class TestInverseTrigFunctions(unittest.TestCase):
         self.assertAlmostEqual(acos(SQRT_2/2), 45)
         self.assertAlmostEqual(acos(SQRT_3/2), 30)
         self.assertAlmostEqual(acos(1), 0)
+
+    # Inverse tangent functions
 
     def test_arctangent(self):
 

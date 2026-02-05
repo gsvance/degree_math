@@ -1,4 +1,4 @@
-"""Unit tests for the normal forward trig functions in degree_math."""
+"""Unit tests for the normal trig functions in degree_math."""
 
 import math
 from typing import Final
@@ -12,6 +12,8 @@ SQRT_3: Final[float] = math.sqrt(3)
 
 
 class TestTrigFunctions(unittest.TestCase):
+
+    # Sine function
 
     def test_sine_on_x_and_y_axes(self):
 
@@ -77,6 +79,8 @@ class TestTrigFunctions(unittest.TestCase):
         self.assertAlmostEqual(sin(-45), -SQRT_2/2)
         self.assertAlmostEqual(sin(-30), -1/2)
 
+    # Cosine function
+
     def test_cosine_on_x_and_y_axes(self):
 
         # Positive angles
@@ -140,6 +144,8 @@ class TestTrigFunctions(unittest.TestCase):
         self.assertAlmostEqual(cos(-60), 1/2)
         self.assertAlmostEqual(cos(-45), SQRT_2/2)
         self.assertAlmostEqual(cos(-30), SQRT_3/2)
+
+    # Tangent function
 
     def test_tangent_on_x_and_y_axes(self):
 
